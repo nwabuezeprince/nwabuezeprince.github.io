@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown timer</title>
+    <style> 
+        body {
+        background-color: white;
+        color: #333;
+        font-family: Arial;
+        font-size: 16px;
+
+        }
+        .container {
+          color: #323;
+
+          text-align: center;
+        }
+        h1 {
+          font-weight: normal;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+
+          font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }     
+        li {
+          display: inline-block;
+          font-size: 24px;
+          list-style-type: none;
+          padding: 16px;
+          text-transform: uppercase;
+        }       
+        li span {
+          display: block;
+          font-size: 72px;
+          border-radius: 25%;
+          color: white;
+          filter: drop-shadow(5px 5px 5px black);
+
+        }
+        img {
+            width: 1000px;  
+            height: 550px;
+            margin-top: 90px;
+            margin: 0 25% ;
+        }
+        .text{
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: xx-large;
+        }
+
+        .textual{
+            margin-top: 15px;
+        }
+
+      </style>
+</head>  
+
+<div>
+    <center>
+        <h1 class="textual">SUZUKI CAR GIVEAWAY</h1>
+    </center>
+</div>
+
+
+<div class="image">
+    <img src="other car image.webp" alt="suzuki car">
+</div>
+
+<h2 class="text" style="text-align: center;">
+    Giveaway ends on the 31st of May, 2024 at 12:00am
+</h2>
+
+<body>
+    <h3 style="text-align: center;"><b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, sit! 
+        Nobis eveniet maiores tempore velit ex voluptatum ea. Sit commodi explicabo harum! 
+        Ad deserunt asperiores temporibus voluptas veritatis! Amet quisquam eius repudiandae 
+        illo. Ducimus, culpa sit. Recusandae assumenda eveniet praesentium, consequuntur 
+        accusamus cum cupiditate quos, veritatis quae dolorum mollitia sint incidunt harum 
+        id molestiae, exercitationem dolor sequi iste eaque! Mollitia, nisi dolores architecto 
+        cum inventore maiores non voluptatum sit, aliquid sequi a, eum n</b></h3>
+    <div class="container">
+        <div id="countdown">
+          <ul>
+            <li><span style="background-color:rgb(100, 100, 248)" id="days"></span>Days</li>
+            <li><span style="background-color:rgb(100, 100, 248)" id="hours"></span>Hours</li>
+            <li><span style="background-color:rgb(100, 100, 248)" id="minutes"></span>Minutes</li>
+            <li><span style="background-color:rgb(100, 100, 248)" id="seconds"></span>Seconds</li>
+          </ul>
+       <script>(function () {
+        const second = 1000,
+              minute = second * 60,
+              hour = minute * 60,
+              day = hour * 24;
+            
+        let today = new Date(),
+            dd = String(today.getDate()).padStart(2, "0"),
+            mm = String(today.getMonth() + 1).padStart(2, "0"),
+            yyyy = today.getFullYear(),
+            nextYear = yyyy + 1,
+            dayMonth = "05/31/",
+            Giveawaydate = dayMonth + yyyy;
+        
+        today = mm + "/" + dd + "/" + yyyy;
+        if (today > Giveawaydate) {
+          Giveawaydate = dayMonth + nextYear;
+        }
+        const countDown = new Date(Giveawaydate).getTime(),
+            x = setInterval(function() {    
+      
+              const now = new Date().getTime(),
+                    distance = countDown - now;
+      
+              document.getElementById("days").innerText = Math.floor(distance / (day)),
+                document.getElementById("hours").innerText = Math.floor((distance % (day)) / (hour)),
+                document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute)),
+                document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
+              if (distance < 0) {
+                document.getElementById("headline").innerText = "!";
+                document.getElementById("countdown").style.display = "none";
+                document.getElementById("content").style.display = "block";
+                clearInterval(x);
+              }
+            }, 0)
+        }());</script>
+</body>
+</html>
